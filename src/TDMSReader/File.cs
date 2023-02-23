@@ -199,7 +199,7 @@ namespace NationalInstruments.Tdms
                 }
 
                 var implicitMetadatas = new List<Reader.Metadata>();
-                if (metadatas.All(m => !m.RawData.IsInterleaved && m.RawData.Size > 0))
+                if (metadatas.Any() && metadatas.All(m => !m.RawData.IsInterleaved && m.RawData.Size > 0))
                 {
                     while (nextOffset < segment.NextSegmentOffset ||
                            (segment.NextSegmentOffset == -1 && nextOffset < reader.FileSize))
